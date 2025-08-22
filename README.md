@@ -148,9 +148,6 @@ The application is built with a modern tech stack featuring:
 
 ![UI Wireframe](./Diagrams/TeamAlphaWireframe-1.png)
 
-### Deployment Status
-
-![Backend Deployment Issue](./Diagrams/unable_to_start_Backend.png)
 ![Frontend Deployment Success](./Diagrams/frontend%20deploy.png)
 
 > **Note**: Frontend successfully deployed to cloud, backend deployment encountered issues
