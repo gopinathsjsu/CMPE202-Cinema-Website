@@ -1,160 +1,221 @@
-CMPE-202-1 Class Project - Movie Theater end-to-end
+# 🎬 Movie Theater Booking System
 
-Due: 12/1/23
+> **CMPE-202-1 Class Project - End-to-End Movie Theater Application**  
+> **Due: December 1, 2023**
 
-"""
+## 📋 Project Overview
 
-Team Alpha's project repo for implementing an end2end MovieTheater Club application for your favorite movie theater chain.
-The system can manage multiplexes in many locations i.e. each location has multiple screens.
+Team Alpha's comprehensive Movie Theater Club application - a full-stack solution for managing multiplex theaters across multiple locations. This system provides end-to-end functionality for movie ticket booking, theater management, and user administration.
 
-"""
+## 🏗️ System Architecture
 
-Instructor:
-- Gopinath Vinodh, Classroom: ENG 325
+The application is built with a modern tech stack featuring:
 
-Group Name: 
-- Team Alpha
+- **Frontend**: React.js with Tailwind CSS
+- **Backend**: Python Flask with RESTful API
+- **Database**: MySQL with Redis caching
+- **Authentication**: Server-side session tokens with cookies
 
-Members + Summary of Contributions (for each team member):
-- Yifu Fang: Yifu took charge of the project architecture. He created the outline for the frontend and backend, researched improvements to the design with Tailwind, wrote the implementation of the Dashboard for employee and users, and handled most of the communication between the frontend requests and backend responses.
+## ✨ Core Features
 
-- Jiajun Dai: Jiajun worked on the Book Tickets and Employee Scheduling and Actions implementation. Jai was incredible at giving tons of feedback and answered most of the team questions within minutes. Jai also filled the database with mock data and filled out the film schedules.
+### 🎫 User Features
 
-- Anthony Zunino: Anthony worked on login and registration with server sided session tokens (cookies) to authenticate the user requests to the backend. Wrote the backend query requests for the user table. Anthony also tracked all Scrum meetings and maintained project deliverables.
+- Movie browsing and scheduling
+- Ticket booking with online service fees ($1.50 per ticket)
+- Membership management (Regular/Premium)
+- User dashboard and purchase history
+- Profile management
 
-- Jena Kelbessa: Jena worked on user authentication at the beginning of the project and helped ask questions on the logistics of the architecture. Created the skeleton for the login page.
+### 🎭 Theater Management
 
-Feature Set:
-- View pages (home, buy tickets, buy membership, user profile), book tickets, cancel ticket, login, register, upgrade membership, downgrade membership, view purchased movies, view user dashboard, view admin dashboard, admin add theater, admin change seat occupancy, admin add movie, admin cancel movie, configure discount prices
+- Multi-location multiplex support
+- Screen and seat management
+- Movie scheduling and showtime configuration
+- Seat occupancy tracking
+- Discount pricing configuration
 
-Helpful Links:
+### 👨‍💼 Administrative Features
 
-- Github link:
-  - https://github.com/gopinathsjsu/teamproject-team-alpha-1
-- Link to Project Journal (also contains Project Board and Task Sheet):
-  - https://github.com/gopinathsjsu/teamproject-team-alpha-1/blob/main/ScrumMeeting/TeamAlphaProjectJournal.pdf
+- Employee dashboard
+- Theater addition and configuration
+- Movie management (add/cancel)
+- Seat occupancy modifications
+- User management and analytics
 
-- Syllabus:
-  - https://sjsu.instructure.com/courses/1570055/files/74025430?wrap=1
-- Excel of team info:
-  - https://docs.google.com/spreadsheets/d/1qowXku9R0LjOND2gilTmbdbIUMP-fOhZU7j70APLi4w/edit#gid=0
+## 👥 Team Members & Contributions
 
----
+| Member             | Role               | Key Contributions                                                                                      |
+| ------------------ | ------------------ | ------------------------------------------------------------------------------------------------------ |
+| **Yifu Fang**      | Project Architect  | Frontend/backend architecture, Dashboard implementation, API integration, Tailwind design improvements |
+| **Jiajun Dai**     | Core Developer     | Book Tickets system, Employee scheduling, Database mock data, Film schedules                           |
+| **Anthony Zunino** | Backend Developer  | Authentication system, Session management, User queries, Scrum meeting coordination                    |
+| **Jena Kelbessa**  | Frontend Developer | User authentication, Login page skeleton, Architecture logistics                                       |
 
-### Class Diagram:
+## 🚀 Getting Started
 
-![diagram](./Diagrams/UML%20diagram.png)
+### Prerequisites
 
----
+- **Python 3.8+**
+- **Node.js 16+**
+- **MySQL Server**
+- **Redis Server**
+- **Git**
 
-### UI Wireframe:
+### Backend Setup
 
-![diagram](./Diagrams/TeamAlphaWireframe-1.png)
+1. **Navigate to backend directory:**
 
----
+   ```bash
+   cd backend
+   ```
 
-### Cloud Deployment Screenshots:
+2. **Create and activate virtual environment:**
 
-![diagram](./Diagrams/cmpe202frontend_Heroku_Deployment.png)
-![diagram](./Diagrams/cmpe202frontend_Heroku_Deployment_Compile_Error.png)
-![diagram](./Diagrams/unable_to_start_Backend.png)
-![diagram](./Diagrams/frontend%20deploy.png)
+   ```bash
+   python -m venv venv
 
-- We had deployed the frontend to the cloud.
-- but theres issue deploy backend
----
+   # Windows
+   .\venv\Scripts\activate
 
-## Prepration for running on windows
+   # macOS/Linux
+   source venv/bin/activate
+   ```
 
-- Install Redis Server for windows
-- download mysql installer and install mysql server and workbench. https://dev.mysql.com/downloads/file/?id=519997
-  - you will be asked to configure root and password.
-  - you will need to modify the these 2 line at Backend/config.py
-  ```
-    self.config['MYSQL_USER'] = 'you_root'
-    self.config['MYSQL_PASSWORD'] = 'you_password'
-  ```
-## How to run our Python Flask Back-end:
+3. **Install dependencies:**
 
-- Make sure you installed your interpreter with a virtual environment '<your path>\teamproject-team-alpha-1\Backend' (venv)
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-```
-python -m venv myenv
-```
+4. **Configure database:**
 
-- make sure the path is '<your path>\teamproject-team-alpha-1\Backend', activate your venv first with this command:
+   - Update `config.py` with your MySQL credentials:
 
-```
-.\myenv\Scripts\activate
-```
+   ```python
+   self.config['MYSQL_USER'] = 'your_username'
+   self.config['MYSQL_PASSWORD'] = 'your_password'
+   ```
 
-- then run:
+5. **Start the backend server:**
+   ```bash
+   python app.py
+   ```
 
-```
- pip install -r .\requirements.txt
-```
+### Frontend Setup
 
-- Now you can start your backend locally with:
+1. **Navigate to frontend directory:**
 
-```
-python app.py
-```
+   ```bash
+   cd frontend
+   ```
 
-- when you finsih the session of programming. deactivate the virtual environemnt:
+2. **Install dependencies:**
 
-```
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server:**
+   ```bash
+   npm start
+   ```
+
+## 🌐 Application Routes
+
+### Public Routes
+
+- **`/`** - Homepage with current movie schedule
+- **`/membership`** - Membership options and purchase
+- **`/book-tickets`** - Movie ticket booking system
+- **`/about-us`** - Theater locations and information
+
+### Authentication Routes
+
+- **`/auth/login`** - User/admin login
+- **`/auth/sign-up`** - User registration
+
+### Protected Routes
+
+- **`/dashboard`** - User/employee dashboard (role-based access)
+
+## 📊 System Diagrams
+
+### Class Diagram
+
+![UML Class Diagram](./Diagrams/UML%20diagram.png)
+
+### UI Wireframe
+
+![UI Wireframe](./Diagrams/TeamAlphaWireframe-1.png)
+
+### Deployment Status
+
+![Backend Deployment Issue](./Diagrams/unable_to_start_Backend.png)
+![Frontend Deployment Success](./Diagrams/frontend%20deploy.png)
+
+> **Note**: Frontend successfully deployed to cloud, backend deployment encountered issues
+
+## 🛠️ Development Commands
+
+### Backend Utilities
+
+```bash
+# Generate requirements.txt from current environment
+pip freeze > requirements.txt
+
+# Deactivate virtual environment
 deactivate
 ```
 
-#### Useful commands for backend:
+### Frontend Development
 
-- when you installed some library in your virtual environment, and you want to include it into requirements.txt. this command automatically detects the library or dependencies in your environment and add it to requirements.txt
+```bash
+# Install new dependencies
+npm install package-name
 
-```
-pip freeze > requirements.txt
-```
-
-
-## How to run our React Front-end:
-
-- install node.js. https://nodejs.org/en
-- after installation of node.js. run the following command to install the dependencies and neccessary files for this project.
-
-```
-npm install
+# Build for production
+npm run build
 ```
 
-- Now you can start your frontend locally with:
+## 📁 Project Structure
 
 ```
-npm start
+teamproject-team-alpha-1/
+├── backend/                 # Flask backend application
+│   ├── controllers/        # Business logic controllers
+│   ├── models/            # Database models
+│   ├── routes/            # API endpoints
+│   └── config.py          # Configuration settings
+├── frontend/              # React frontend application
+│   ├── components/        # Reusable UI components
+│   ├── pages/            # Application pages
+│   └── src/              # Source code
+├── Diagrams/              # System diagrams and wireframes
+└── Documentation/         # Project documentation
 ```
 
+## 🔗 Important Links
 
-## Front-end routing
+- **GitHub Repository**: [teamproject-team-alpha-1](https://github.com/gopinathsjsu/teamproject-team-alpha-1)
+- **Project Journal**: [TeamAlphaProjectJournal.pdf](./ScrumMeeting/TeamAlphaProjectJournal.pdf)
+- **Course Syllabus**: [CMPE-202-1](https://sjsu.instructure.com/courses/1570055/files/74025430?wrap=1)
+- **Team Information**: [Google Sheets](https://docs.google.com/spreadsheets/1qowXku9R0LjOND2gilTmbdbIUMP-fOhZU7j70APLi4w/edit#gid=0)
 
-### Home: /
+## 📚 Course Information
 
-    /
-    /membership
-    /book-tickets
-    /about-us
-    /dashboard
+- **Instructor**: Gopinath Vinodh
+- **Classroom**: ENG 325
+- **Course**: CMPE-202-1
+- **Project Type**: End-to-End Application Development
 
-- / homepage display with current movie schedule, and upcoming movie
-- /membership display the options to buy regular or premium membership
-- /book-tickets buy moview tickets with a online service fee ($1.50 per ticket).
-- /about-us different theaters, location
-- /dashboard depending on the logged in user, it display a different dahsboard and different functionality. user, premium, or employee.
+## 🤝 Contributing
+
+This project was developed as part of CMPE-202-1 coursework. For questions or contributions, please contact the team members listed above.
+
+## 📄 License
+
+This project is developed for educational purposes as part of San Jose State University's CMPE-202-1 course requirements.
 
 ---
 
-### Auth:
-
-##### authentication
-
-    /auth/log-in
-    /auth/sign-up
-
-- /auth/login display the inputbox username and passward. user can select the method of login as admin or member
-- /auth/sign-up display the signup page prompt user to sign up, then save the data on database.
+**Team Alpha** - Building the future of movie theater management, one ticket at a time! 🎬✨
